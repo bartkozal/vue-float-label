@@ -8,7 +8,10 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run demo",
-    "demo": "vue build demo/index.js -o"
+    "demo": "vue build demo/index.js -o",
+    "lint": "npm run eslint && npm run stylelint",
+    "eslint": "eslint --ext .js,.vue vue-float-label.js components",
+    "stylelint": "stylelint 'components/*.vue'"
   },
   "files": [
     "vue-float-label.js",
@@ -21,6 +24,16 @@
     "label"
   ],
   "devDependencies": {
+    "babel-eslint": "^7.1.1",
+    "eslint": "^3.16.1",
+    "eslint-config-standard": "^6.2.1",
+    "eslint-plugin-html": "^2.0.1",
+    "eslint-plugin-promise": "^3.4.2",
+    "eslint-plugin-standard": "^2.0.1",
+    "stylelint": "^7.9.0",
+    "stylelint-config-recess-order": "^1.0.0",
+    "stylelint-config-standard": "^16.0.0",
+    "stylelint-processor-html": "^1.0.0",
     "vue-cli": "^2.8.1"
   }
 }
