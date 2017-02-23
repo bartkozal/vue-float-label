@@ -19,5 +19,8 @@
     "vuejs",
     "float",
     "label"
-  ]
+  ],
+  "devDependencies": {
+    "vue-cli": "^2.8.1"
+  }
 }
