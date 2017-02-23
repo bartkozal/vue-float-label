@@ -1,7 +1,7 @@
 <template>
   <div class="vfl-has-label">
     <div class="vfl-label"
-      :class="{'vfl-label-active': hasContent}"
+      :class="{'vfl-label-active': hasContent, 'vfl-label-focus': isFocused}"
       :style="{ width }"
       @click="focusEl">
       {{ placeholder }}
@@ -19,7 +19,8 @@ export default {
       width: 'auto',
       placeholder: '',
       placeholderRightIndent: 6,
-      hasContent: false
+      hasContent: false,
+      isFocused: false
     }
   },
   mounted () {
@@ -27,9 +28,19 @@ export default {
     this.placeholder = this.el.placeholder
     this.width = `${this.el.clientWidth - this.placeholderRightIndent}px`
     this.el.placeholder = ''
-    this.el.onkeyup = (e) => {
+
+    const updateHasContent = e => {
       this.hasContent = e.target.value.length > 0
     }
+
+    const updateIsFocused = e => {
+      this.isFocused = e.target === document.activeElement && this.hasContent
+    }
+
+    this.el.addEventListener('keyup', updateHasContent)
+    this.el.addEventListener('keyup', updateIsFocused)
+    this.el.addEventListener('blur', updateIsFocused)
+    this.el.addEventListener('focus', updateIsFocused)
   },
   methods: {
     focusEl () {
@@ -59,5 +70,9 @@ export default {
 
 .vfl-label-active {
   top: -1.3em;
+}
+
+.vfl-label-focus {
+  color: #0074d9
 }
 </style>
