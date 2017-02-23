@@ -14,7 +14,7 @@
       <hr>
 
       <float-label>
-        <input type="password" placeholder="Password">
+        <input type="password" placeholder="Password placeholder is very very very very long">
       </float-label>
 
       <hr>
@@ -30,6 +30,5 @@
 .container {
   width: 150px;
   margin: auto;
-  text-align: center;
 }
 </style>
