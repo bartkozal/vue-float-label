@@ -49,7 +49,8 @@ Wrap text/email/password input or textarea:
 
 ### Examples
 
-Override `.vfl-label` class to meet yout design requirements:
+Override `.vfl-label`, `.vfl-label-on-input` and `.vfl-label-on-focus` to meet
+your design requirements:
 
 TODO
 
