@@ -41,11 +41,15 @@ Wrap text/email/password input or textarea:
 <float-label>
   <input type="email" placeholder="E-mail">
 </float-label>
+
+<float-label>
+  <textarea placeholder="comment"></textarea>
+</float-label>
 ```
 
 ### Examples
 
-Override `.vfl-label` class to meet yout design requirements
+Override `.vfl-label` class to meet yout design requirements:
 
 TODO
 

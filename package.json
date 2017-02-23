@@ -7,8 +7,8 @@
   "author": "Bartlomiej Kozal <bkzl@me.com>",
   "license": "MIT",
   "scripts": {
-    "start": "npm run dev",
-    "dev": "vue build components/FloatLabel.vue -o"
+    "start": "npm run demo",
+    "demo": "vue build demo/index.js -o"
   },
   "files": [
     "vue-float-label.js",
