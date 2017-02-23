@@ -13,16 +13,15 @@ export default {
   data () {
     return {
       el: undefined,
+      width: 'auto',
       placeholder: '',
-      width: 'auto'
+      placeholderRightIndent: 6
     }
   },
   mounted () {
-    const rightPadding = 6
-
     this.el = this.$el.querySelector('input, textarea')
     this.placeholder = this.el.placeholder
-    this.width = `${this.el.clientWidth - rightPadding}px`
+    this.width = `${this.el.clientWidth - this.placeholderRightIndent}px`
     this.el.placeholder = ''
   },
   methods: {
