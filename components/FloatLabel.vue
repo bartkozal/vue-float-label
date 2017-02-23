@@ -1,9 +1,6 @@
 <template>
   <div class="vfl-has-label">
-    <div class="vfl-label"
-      :class="{'vfl-label-active': hasContent, 'vfl-label-focus': isFocused}"
-      :style="{ width }"
-      @click="focusEl">
+    <div class="vfl-label" :class="classObject" :style="{ width }" @click="focusEl">
       {{ placeholder }}
     </div>
     <slot></slot>
@@ -16,35 +13,40 @@ export default {
   data () {
     return {
       el: undefined,
-      width: 'auto',
+      hasContent: false,
+      isFocused: false,
       placeholder: '',
       placeholderRightIndent: 6,
-      hasContent: false,
-      isFocused: false
+      width: 'auto'
     }
   },
   mounted () {
     this.el = this.$el.querySelector('input, textarea')
-    this.placeholder = this.el.placeholder
     this.width = `${this.el.clientWidth - this.placeholderRightIndent}px`
+    this.placeholder = this.el.placeholder
     this.el.placeholder = ''
-
-    const updateHasContent = e => {
-      this.hasContent = e.target.value.length > 0
-    }
-
-    const updateIsFocused = e => {
-      this.isFocused = e.target === document.activeElement && this.hasContent
-    }
-
-    this.el.addEventListener('keyup', updateHasContent)
-    this.el.addEventListener('keyup', updateIsFocused)
-    this.el.addEventListener('blur', updateIsFocused)
-    this.el.addEventListener('focus', updateIsFocused)
+    this.el.addEventListener('input', this.updateHasContent)
+    this.el.addEventListener('input', this.updateIsFocused)
+    this.el.addEventListener('blur', this.updateIsFocused)
+    this.el.addEventListener('focus', this.updateIsFocused)
   },
   methods: {
     focusEl () {
       this.el.focus()
+    },
+    updateHasContent (e) {
+      this.hasContent = e.target.value.length > 0
+    },
+    updateIsFocused (e) {
+      this.isFocused = e.target === document.activeElement && this.hasContent
+    }
+  },
+  computed: {
+    classObject () {
+      return {
+        'vfl-label-on-input': this.hasContent,
+        'vfl-label-on-focus': this.isFocused
+      }
     }
   }
 }
@@ -65,14 +67,14 @@ export default {
   color: #aaa;
   text-overflow: ellipsis;
   white-space: nowrap;
-  transition: top .2s ease-out;
+  transition: top 0.2s ease-out;
 }
 
-.vfl-label-active {
+.vfl-label-on-input {
   top: -1.3em;
 }
 
-.vfl-label-focus {
-  color: #0074d9
+.vfl-label-on-focus {
+  color: #0074d9;
 }
 </style>
