@@ -1,6 +1,6 @@
 <template>
   <div class="vfl-has-label">
-    <div class="vfl-label" :style="{ width }" @click="">
+    <div class="vfl-label" :style="{ width }" @click="focusEl">
       {{ placeholder }}
     </div>
     <slot></slot>
@@ -12,17 +12,23 @@ export default {
   name: 'float-label',
   data () {
     return {
+      el: undefined,
       placeholder: '',
       width: 'auto'
     }
   },
   mounted () {
-    const el = this.$el.querySelector('input, textarea')
     const rightPadding = 6
 
-    this.placeholder = el.placeholder
-    this.width = `${el.clientWidth - rightPadding}px`
-    el.placeholder = ''
+    this.el = this.$el.querySelector('input, textarea')
+    this.placeholder = this.el.placeholder
+    this.width = `${this.el.clientWidth - rightPadding}px`
+    this.el.placeholder = ''
+  },
+  methods: {
+    focusEl () {
+      this.el.focus()
+    }
   }
 }
 </script>
