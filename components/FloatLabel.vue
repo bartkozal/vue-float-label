@@ -1,6 +1,9 @@
 <template>
   <div class="vfl-has-label">
-    <div class="vfl-label" :style="{ width }" @click="focusEl">
+    <div class="vfl-label"
+      :class="{'vfl-label-active': hasContent}"
+      :style="{ width }"
+      @click="focusEl">
       {{ placeholder }}
     </div>
     <slot></slot>
@@ -15,7 +18,8 @@ export default {
       el: undefined,
       width: 'auto',
       placeholder: '',
-      placeholderRightIndent: 6
+      placeholderRightIndent: 6,
+      hasContent: false
     }
   },
   mounted () {
@@ -23,6 +27,9 @@ export default {
     this.placeholder = this.el.placeholder
     this.width = `${this.el.clientWidth - this.placeholderRightIndent}px`
     this.el.placeholder = ''
+    this.el.onkeyup = (e) => {
+      this.hasContent = e.target.value.length > 0
+    }
   },
   methods: {
     focusEl () {
@@ -47,5 +54,10 @@ export default {
   color: #aaa;
   text-overflow: ellipsis;
   white-space: nowrap;
+  transition: top .2s ease-out;
+}
+
+.vfl-label-active {
+  top: -1.3em;
 }
 </style>

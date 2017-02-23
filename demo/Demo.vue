@@ -5,19 +5,13 @@
         <input type="text" placeholder="First name">
       </float-label>
 
-      <hr>
-
       <float-label>
         <input type="email" placeholder="Email">
       </float-label>
 
-      <hr>
-
       <float-label>
-        <input type="password" placeholder="Password placeholder is very very very very long">
+        <input type="password" placeholder="Password">
       </float-label>
-
-      <hr>
 
       <float-label>
         <textarea placeholder="Text area"></textarea>
@@ -30,5 +24,19 @@
 .container {
   width: 150px;
   margin: auto;
+}
+
+body {
+  padding: 2em;
+}
+
+input,
+textarea {
+  margin-bottom: 2.5em;
+}
+
+input:focus,
+textarea:focus {
+  outline: 0;
 }
 </style>
