@@ -50,7 +50,7 @@ Wrap text/email/password input or textarea:
 </float-label>
 ```
 
-### Examples
+### Customization
 
 Style `.vfl-label`, `.vfl-label-on-input` and `.vfl-label-on-focus`
 to meet your design requirements:
