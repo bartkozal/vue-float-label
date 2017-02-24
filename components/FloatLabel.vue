@@ -65,8 +65,8 @@ export default {
   color: #aaa;
   text-overflow: ellipsis;
   white-space: nowrap;
+  opacity: 0;
   transition: all 0.2s ease-out;
-  opacity: 0
 }
 
 .vfl-label-on-input {
