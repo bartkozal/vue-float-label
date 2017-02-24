@@ -16,15 +16,13 @@ export default {
       hasValue: false,
       isActive: false,
       label: '',
-      placeholderIndentation: 6,
       width: 'auto'
     }
   },
   mounted () {
     this.input = this.$el.querySelector('input, textarea')
-    this.width = `${this.input.clientWidth - this.placeholderIndentation}px`
+    this.width = `${this.input.clientWidth}px`
     this.label = this.input.placeholder
-    this.input.placeholder = ''
     this.input.addEventListener('input', this.updateHasValue)
     this.input.addEventListener('input', this.updateIsActive)
     this.input.addEventListener('blur', this.updateIsActive)
@@ -59,22 +57,29 @@ export default {
 
 .vfl-label {
   position: absolute;
-  top: 0.25em;
-  left: 0.3em;
+  top: 0;
+  left: 0.1em;
   overflow: hidden;
   font-family: sans-serif;
-  font-size: 0.7em;
+  font-size: 0.8em;
   color: #aaa;
   text-overflow: ellipsis;
   white-space: nowrap;
-  transition: top 0.2s ease-out;
+  transition: all 0.2s ease-out;
+  opacity: 0
 }
 
 .vfl-label-on-input {
   top: -1.3em;
+  opacity: 1;
 }
 
 .vfl-label-on-focus {
   color: #0074d9;
+}
+
+.vfl-has-label input:focus,
+.vfl-has-label textarea:focus {
+  outline: 0;
 }
 </style>

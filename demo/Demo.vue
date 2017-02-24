@@ -33,10 +33,7 @@ body {
 input,
 textarea {
   margin-bottom: 2.5em;
-}
-
-input:focus,
-textarea:focus {
-  outline: 0;
+  line-height: 1.15;
+  font-size: 100%;
 }
 </style>

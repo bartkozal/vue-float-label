@@ -20,9 +20,7 @@ const getFloatLabel = () => {
 test('setup on mount', () => {
   const vm = getFloatLabel()
   expect(vm.input).toBeInstanceOf(HTMLInputElement)
-  expect(vm.width).toEqual('-6px') // clientWidth = 0
   expect(vm.label).toEqual('Name')
-  expect(vm.input.placeholder).toEqual('')
 })
 
 test('classObject', () => {
