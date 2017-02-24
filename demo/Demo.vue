@@ -16,6 +16,12 @@
       <float-label>
         <textarea placeholder="Comment"></textarea>
       </float-label>
+
+      <div class="example">
+        <float-label>
+          <input type="text" placeholder="Website">
+        </float-label>
+      </div>
     </div>
   </div>
 </template>
@@ -37,5 +43,33 @@ textarea {
   font-size: 14px;
   padding: .4em;
   width: 100%;
+}
+
+.example {
+  margin-top: 2em;
+}
+
+.example .vfl-label {
+  text-transform: uppercase;
+}
+
+.example .vfl-label-on-input {
+  top: -1em;
+}
+
+.example .vfl-label-on-focus {
+  color: #ff851b;
+}
+
+.example .vfl-label + input {
+  padding-left: 0;
+  font-size: 100%;
+  border: 0;
+  border-bottom: 2px solid #aaa;
+  transition: border 0.2s;
+}
+
+.example .vfl-label-on-focus + input  {
+  border-bottom: 2px solid #ff851b;
 }
 </style>

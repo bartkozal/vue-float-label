@@ -50,10 +50,36 @@ Wrap text/email/password input or textarea:
 
 ### Examples
 
-Adjust `.vfl-label`, `.vfl-label-on-input` and `.vfl-label-on-focus` to meet
-your design requirements:
+Style `.vfl-label`, `.vfl-label-on-input` and `.vfl-label-on-focus`
+to meet your design requirements:
 
-TODO
+![example](https://github.com/bkzl/vue-float-label/blob/master/demo/example.gif)
+
+```css
+.vfl-label {
+  text-transform: uppercase;
+}
+
+.vfl-label-on-input {
+  top: -1em;
+}
+
+.vfl-label-on-focus {
+  color: #ff851b;
+}
+
+.vfl-label + input {
+  padding-left: 0;
+  font-size: 100%;
+  border: 0;
+  border-bottom: 2px solid #aaa;
+  transition: border 0.2s;
+}
+
+.vfl-label-on-focus + input  {
+  border-bottom: 2px solid #ff851b;
+}
+```
 
 ## Development
 
