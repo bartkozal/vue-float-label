@@ -1,12 +1,13 @@
 # vue-float-label
 
-Float label pattern for Vue.js
+Float label pattern for Vue.js. Cross-browser compatible and easy to customize
+with CSS.
 
 TODO: gif
 
 ```html
 <float-label>
-  <input type="text" placeholder="First name">
+  <input type="text" placeholder="Label">
 </float-label>
 ```
 
@@ -49,7 +50,7 @@ Wrap text/email/password input or textarea:
 
 ### Examples
 
-Override `.vfl-label`, `.vfl-label-on-input` and `.vfl-label-on-focus` to meet
+Adjust `.vfl-label`, `.vfl-label-on-input` and `.vfl-label-on-focus` to meet
 your design requirements:
 
 TODO
@@ -62,7 +63,7 @@ TODO
     $ git clone git@github.com:bkzl/vue-fraction-grid.git
     ```
 
-2. Start the development:
+2. Start development:
 
     ```sh
     $ npm start

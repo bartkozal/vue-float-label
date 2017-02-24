@@ -32,8 +32,10 @@ body {
 
 input,
 textarea {
-  margin-bottom: 2.5em;
+  margin-bottom: 2em;
   line-height: 1.15;
-  font-size: 100%;
+  font-size: 14px;
+  padding: .4em;
+  width: 100%;
 }
 </style>
