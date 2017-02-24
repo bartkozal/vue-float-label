@@ -1,5 +1,7 @@
 # vue-float-label
 
+[![Build Status](https://travis-ci.org/bkzl/vue-float-label.svg?branch=master)](https://travis-ci.org/bkzl/vue-float-label)
+
 Float label pattern for Vue.js. Cross-browser compatible and easy to customize
 with CSS.
 
