@@ -19,10 +19,10 @@ const getFloatLabel = () => {
 
 test('setup on mount', () => {
   const vm = getFloatLabel()
-  expect(vm.el).toBeInstanceOf(HTMLInputElement)
+  expect(vm.input).toBeInstanceOf(HTMLInputElement)
   expect(vm.width).toEqual('-6px') // clientWidth = 0
-  expect(vm.placeholder).toEqual('Name')
-  expect(vm.el.placeholder).toEqual('')
+  expect(vm.label).toEqual('Name')
+  expect(vm.input.placeholder).toEqual('')
 })
 
 test('classObject', () => {
@@ -32,56 +32,56 @@ test('classObject', () => {
   expect(classObjectKeys).toContain('vfl-label-on-focus')
 })
 
-test('focusEl', () => {
+test('focusInput', () => {
   const vm = getFloatLabel()
-  vm.el.focus = jest.fn()
-  vm.focusEl()
-  expect(vm.el.focus).toHaveBeenCalledTimes(1)
+  vm.input.focus = jest.fn()
+  vm.focusInput()
+  expect(vm.input.focus).toHaveBeenCalledTimes(1)
 })
 
-describe('updateHasContent', () => {
-  test('hasContent is true when element value isnt empty', () => {
+describe('updateHasValue', () => {
+  test('hasValue is true when element value isnt empty', () => {
     const vm = getFloatLabel()
-    const event = { target: vm.el }
-    vm.el.value = 'Foo'
-    vm.updateHasContent(event)
-    expect(vm.hasContent).toEqual(true)
+    const event = { target: vm.input }
+    vm.input.value = 'Foo'
+    vm.updateHasValue(event)
+    expect(vm.hasValue).toEqual(true)
   })
 
-  test('hasContent is false when element value is empty', () => {
+  test('hasValue is false when element value is empty', () => {
     const vm = getFloatLabel()
-    const event = { target: vm.el }
-    vm.el.value = ''
-    vm.updateHasContent(event)
-    expect(vm.hasContent).toEqual(false)
+    const event = { target: vm.input }
+    vm.input.value = ''
+    vm.updateHasValue(event)
+    expect(vm.hasValue).toEqual(false)
   })
 })
 
-describe('updateIsFocused', () => {
-  test('isFocused is true when element is focused and has content', () => {
+describe('updateIsActive', () => {
+  test('isActive is true when element is focused and has content', () => {
     const vm = getFloatLabel()
-    const event = { target: vm.el }
-    vm.hasContent = true
-    vm.focusEl()
-    vm.updateIsFocused(event)
+    const event = { target: vm.input }
+    vm.hasValue = true
+    vm.input.focus()
+    vm.updateIsActive(event)
 
-    expect(vm.isFocused).toEqual(true)
+    expect(vm.isActive).toEqual(true)
   })
 
-  test('isFocused is false when element isnt focused and has content', () => {
+  test('isActive is false when element isnt focused and has content', () => {
     const vm = getFloatLabel()
-    const event = { target: vm.el }
-    vm.hasContent = true
-    vm.updateIsFocused(event)
+    const event = { target: vm.input }
+    vm.hasValue = true
+    vm.updateIsActive(event)
 
-    expect(vm.isFocused).toEqual(false)
+    expect(vm.isActive).toEqual(false)
   })
 
-  test('isFocused is false when element isnt focused and doesnt have content', () => {
+  test('isActive is false when element isnt focused and doesnt have content', () => {
     const vm = getFloatLabel()
-    const event = { target: vm.el }
-    vm.updateIsFocused(event)
+    const event = { target: vm.input }
+    vm.updateIsActive(event)
 
-    expect(vm.isFocused).toEqual(false)
+    expect(vm.isActive).toEqual(false)
   })
 })

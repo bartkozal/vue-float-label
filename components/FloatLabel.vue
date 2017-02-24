@@ -1,7 +1,7 @@
 <template>
   <div class="vfl-has-label">
-    <div class="vfl-label" :class="classObject" :style="{ width }" @click="focusEl">
-      {{ placeholder }}
+    <div class="vfl-label" :class="classObject" :style="{ width }" @click="focusInput">
+      {{ label }}
     </div>
     <slot></slot>
   </div>
@@ -12,40 +12,40 @@ export default {
   name: 'float-label',
   data () {
     return {
-      el: undefined,
-      hasContent: false,
-      isFocused: false,
-      placeholder: '',
-      placeholderRightIndent: 6,
+      input: undefined,
+      hasValue: false,
+      isActive: false,
+      label: '',
+      placeholderIndentation: 6,
       width: 'auto'
     }
   },
   mounted () {
-    this.el = this.$el.querySelector('input, textarea')
-    this.width = `${this.el.clientWidth - this.placeholderRightIndent}px`
-    this.placeholder = this.el.placeholder
-    this.el.placeholder = ''
-    this.el.addEventListener('input', this.updateHasContent)
-    this.el.addEventListener('input', this.updateIsFocused)
-    this.el.addEventListener('blur', this.updateIsFocused)
-    this.el.addEventListener('focus', this.updateIsFocused)
+    this.input = this.$el.querySelector('input, textarea')
+    this.width = `${this.input.clientWidth - this.placeholderIndentation}px`
+    this.label = this.input.placeholder
+    this.input.placeholder = ''
+    this.input.addEventListener('input', this.updateHasValue)
+    this.input.addEventListener('input', this.updateIsActive)
+    this.input.addEventListener('blur', this.updateIsActive)
+    this.input.addEventListener('focus', this.updateIsActive)
   },
   methods: {
-    focusEl () {
-      this.el.focus()
+    focusInput () {
+      this.input.focus()
     },
-    updateHasContent (e) {
-      this.hasContent = e.target.value.length > 0
+    updateHasValue (e) {
+      this.hasValue = e.target.value.length > 0
     },
-    updateIsFocused (e) {
-      this.isFocused = e.target === document.activeElement && this.hasContent
+    updateIsActive (e) {
+      this.isActive = e.target === document.activeElement && this.hasValue
     }
   },
   computed: {
     classObject () {
       return {
-        'vfl-label-on-input': this.hasContent,
-        'vfl-label-on-focus': this.isFocused
+        'vfl-label-on-input': this.hasValue,
+        'vfl-label-on-focus': this.isActive
       }
     }
   }
