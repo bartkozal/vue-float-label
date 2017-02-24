@@ -88,7 +88,7 @@ to meet your design requirements:
 1. Clone the repository:
 
     ```sh
-    $ git clone git@github.com:bkzl/vue-fraction-grid.git
+    $ git clone git@github.com:bkzl/vue-float-label.git
     ```
 
 2. Start development:
