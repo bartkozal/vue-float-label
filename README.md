@@ -3,7 +3,7 @@
 Float label pattern for Vue.js. Cross-browser compatible and easy to customize
 with CSS.
 
-TODO: gif
+![intro](https://github.com/bkzl/vue-float-label/blob/master/demo/intro.gif)
 
 ```html
 <float-label>

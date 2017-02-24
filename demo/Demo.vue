@@ -14,7 +14,7 @@
       </float-label>
 
       <float-label>
-        <textarea placeholder="Text area"></textarea>
+        <textarea placeholder="Comment"></textarea>
       </float-label>
     </div>
   </div>
