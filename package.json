@@ -34,8 +34,8 @@
       "vue"
     ],
     "transform": {
-      "^.+\\.js$": "babel-jest",
-      ".*\\.(vue)$": "jest-vue-preprocessor"
+      ".*\\.js$": "babel-jest",
+      ".*\\.vue$": "jest-vue-preprocessor"
     }
   },
   "devDependencies": {
