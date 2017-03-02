@@ -15,26 +15,54 @@ with CSS.
 
 ## Installation
 
-1. Install package using `yarn` or `npm`:
+### yarn / npm
 
-    ```sh
-    $ yarn add vue-float-label
+Install package using `yarn` or `npm`:
 
-    # or
+```sh
+$ yarn add vue-float-label
 
-    $ npm install --save vue-float-label
-    ```
+# or
 
-2. Load the plugin by calling `Vue.use()`:
+$ npm install --save vue-float-label
+```
 
-    ```js
-    import Vue from 'vue'
-    import VueFloatLabel from 'vue-float-label'
+#### Global
 
-    Vue.use(VueFloatLabel)
-    ```
+Load the plugin by calling `Vue.use()`:
 
-3. Now you have access in your templates to the `<float-label>` component.
+```js
+import Vue from 'vue'
+import VueFloatLabel from 'vue-float-label'
+
+Vue.use(VueFloatLabel)
+```
+
+Now you have access in your templates to the `<float-label>` component.
+
+#### Local
+
+You may prefer to explicitly import the plugin and use it inside your components:
+
+```vue
+<template>
+  <div>
+    <float-label>
+      ...
+    </float-label>
+  </div>
+</template>
+
+<script>
+import FloatLabel from 'vue-float-label/components/FloatLabel'
+
+export default {
+  components: {
+    FloatLabel
+  }
+}
+</script>
+```
 
 ## Usage
 
