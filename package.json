@@ -12,7 +12,8 @@
     "test": "jest --silent",
     "lint": "npm run eslint && npm run stylelint",
     "eslint": "eslint --ext .js,.vue vue-float-label.js components",
-    "stylelint": "stylelint 'components/*.vue'"
+    "stylelint": "stylelint 'components/*.vue'",
+    "dist": "vue build vue-float-label.js --prod --lib"
   },
   "files": [
     "vue-float-label.js",

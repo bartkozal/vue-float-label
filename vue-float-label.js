@@ -6,4 +6,8 @@ const VueFloatLabel = {
   }
 }
 
+if (typeof window !== 'undefined' && window.Vue) {
+  window.Vue.use(VueFloatLabel)
+}
+
 export default VueFloatLabel
