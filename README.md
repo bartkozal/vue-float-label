@@ -46,11 +46,9 @@ You may prefer to explicitly import the plugin and use it inside your components
 
 ```vue
 <template>
-  <div>
-    <float-label>
-      ...
-    </float-label>
-  </div>
+  <float-label>
+    ...
+  </float-label>
 </template>
 
 <script>
@@ -64,9 +62,33 @@ export default {
 </script>
 ```
 
+### CDN
+
+Load script and stylesheet files from CDN:
+
+```html
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <link rel="stylesheet" href="//rawgit.com/bkzl/vue-float-label/v1.0.1/dist/vue-float-label.css">
+</head>
+<body>
+  <div id="root"></div>
+  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.min.js"></script>
+  <script src="//rawgit.com/bkzl/vue-float-label/v1.0.1/dist/vue-float-label.js"></script>
+  <script>
+    new Vue({
+      el: '#root',
+      template: '<float-label>...</float-label>'
+    })
+  </script>
+</body>
+</html>
+```
+
 ## Usage
 
-Wrap text/email/password input or textarea:
+Wrap text/email/password input or textarea with `<float-label>`:
 
 ```html
 <float-label>
