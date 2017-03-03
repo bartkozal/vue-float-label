@@ -5,7 +5,7 @@
 Float label pattern for Vue.js. Cross-browser compatible and easy to customize
 with CSS.
 
-![intro](https://github.com/bkzl/vue-float-label/blob/master/demo/intro.gif)
+![intro](https://github.com/bkzl/vue-float-label/raw/master/demo/intro.gif)
 
 ```html
 <float-label>
@@ -105,7 +105,7 @@ Wrap text/email/password input or textarea with `<float-label>`:
 Style `.vfl-label`, `.vfl-label-on-input` and `.vfl-label-on-focus`
 to meet your design requirements:
 
-![example](https://github.com/bkzl/vue-float-label/blob/master/demo/example.gif)
+![example](https://github.com/bkzl/vue-float-label/raw/master/demo/example.gif)
 
 ```css
 .vfl-label {
