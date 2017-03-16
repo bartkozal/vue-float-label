@@ -23,7 +23,7 @@ export default {
     this.input = this.$el.querySelector('input, textarea, select')
     this.width = `${this.input.clientWidth}px`
     this.label = this.input.placeholder
-    if ( ! this.label) this.label = this.input.attributes["placeholder"].nodeValue    
+    if (!this.label) this.label = this.input.attributes['placeholder'].nodeValue
     this.input.addEventListener('input', this.updateHasValue)
     this.input.addEventListener('input', this.updateIsActive)
     this.input.addEventListener('blur', this.updateIsActive)
