@@ -98,6 +98,14 @@ Wrap text/email/password input or textarea with `<float-label>`:
 <float-label>
   <textarea placeholder="comment"></textarea>
 </float-label>
+
+<float-label>
+    <select placeholder="Gender">
+        <option value="" disabled selected>Gender</option>
+        <option>M</option>
+        <option>F</option>
+    </select>
+</float-label>
 ```
 
 ### Customization
