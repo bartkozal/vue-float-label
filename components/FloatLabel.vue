@@ -10,42 +10,48 @@
 <script>
 export default {
   name: 'float-label',
+  props: {
+    on: {
+      type: Boolean,
+      default: true
+    }
+  },
   data () {
     return {
       formEl: undefined,
-      hasValue: false,
-      isActive: false
+      isActive: false,
+      isFocused: false
     }
   },
   mounted () {
     this.formEl = this.$el.querySelector('input, textarea, select')
-    this.formEl.addEventListener('input', this.updateHasValue)
     this.formEl.addEventListener('input', this.updateIsActive)
-    this.formEl.addEventListener('blur', this.updateIsActive)
-    this.formEl.addEventListener('focus', this.updateIsActive)
+    this.formEl.addEventListener('input', this.updateIsFocused)
+    this.formEl.addEventListener('blur', this.updateIsFocused)
+    this.formEl.addEventListener('focus', this.updateIsFocused)
   },
-  beforyDestroy () {
-    this.formEl.removeEventListener('input', this.updateHasValue)
+  beforeDestroy () {
     this.formEl.removeEventListener('input', this.updateIsActive)
-    this.formEl.removeEventListener('blur', this.updateIsActive)
-    this.formEl.removeEventListener('focus', this.updateIsActive)
+    this.formEl.removeEventListener('input', this.updateIsFocused)
+    this.formEl.removeEventListener('blur', this.updateIsFocused)
+    this.formEl.removeEventListener('focus', this.updateIsFocused)
   },
   methods: {
     focusFormEl () {
       this.formEl.focus()
     },
-    updateHasValue (e) {
-      this.hasValue = e.target.value.length > 0
-    },
     updateIsActive (e) {
-      this.isActive = e.target === document.activeElement && this.hasValue
+      this.isActive = e.target.value.length > 0
+    },
+    updateIsFocused (e) {
+      this.isFocused = e.target === document.activeElement && this.isActive
     }
   },
   computed: {
     classObject () {
       return {
-        'vfl-label-on-input': this.hasValue,
-        'vfl-label-on-focus': this.isActive
+        'vfl-label-on-input': this.on && this.isActive,
+        'vfl-label-on-focus': this.isFocused
       }
     },
     formElType () {

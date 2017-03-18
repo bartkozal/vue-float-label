@@ -18,11 +18,18 @@ test('formElType', () => {
   expect(ctorSelect().formElType).toEqual('select')
 })
 
-test('classObject', () => {
-  const vm = ctorInput()
-  const classObjectKeys = Object.keys(vm.classObject)
-  expect(classObjectKeys).toContain('vfl-label-on-input')
-  expect(classObjectKeys).toContain('vfl-label-on-focus')
+describe('classObject', () => {
+  test('contain onInput and onFocus classes', () => {
+    const vm = ctorInput()
+    const classObjectKeys = Object.keys(vm.classObject)
+    expect(classObjectKeys).toContain('vfl-label-on-input')
+    expect(classObjectKeys).toContain('vfl-label-on-focus')
+  })
+
+  test('onInput to be false when on prop is false', () => {
+    const vm = ctorInput({ on: false })
+    expect(vm.classObject['vfl-label-on-input']).toBe(false)
+  })
 })
 
 test('focusFormEl', () => {
@@ -32,49 +39,49 @@ test('focusFormEl', () => {
   expect(vm.formEl.focus).toHaveBeenCalledTimes(1)
 })
 
-describe('updateHasValue', () => {
-  test('hasValue is true when element value isnt empty', () => {
+describe('updateIsActive', () => {
+  test('isActive is true when element value isnt empty', () => {
     const vm = ctorInput()
     const event = { target: vm.formEl }
     vm.formEl.value = 'Foo'
-    vm.updateHasValue(event)
-    expect(vm.hasValue).toEqual(true)
-  })
-
-  test('hasValue is false when element value is empty', () => {
-    const vm = ctorInput()
-    const event = { target: vm.formEl }
-    vm.formEl.value = ''
-    vm.updateHasValue(event)
-    expect(vm.hasValue).toEqual(false)
-  })
-})
-
-describe('updateIsActive', () => {
-  test('isActive is true when element is focused and has content', () => {
-    const vm = ctorInput()
-    const event = { target: vm.formEl }
-    vm.hasValue = true
-    vm.formEl.focus()
     vm.updateIsActive(event)
-
     expect(vm.isActive).toEqual(true)
   })
 
-  test('isActive is false when element isnt focused and has content', () => {
+  test('isActive is false when element value is empty', () => {
     const vm = ctorInput()
     const event = { target: vm.formEl }
-    vm.hasValue = true
+    vm.formEl.value = ''
     vm.updateIsActive(event)
-
     expect(vm.isActive).toEqual(false)
   })
+})
 
-  test('isActive is false when element isnt focused and doesnt have content', () => {
+describe('updateIsFocused', () => {
+  test('isFocused is true when element is focused and is active', () => {
     const vm = ctorInput()
     const event = { target: vm.formEl }
-    vm.updateIsActive(event)
+    vm.isActive = true
+    vm.formEl.focus()
+    vm.updateIsFocused(event)
 
-    expect(vm.isActive).toEqual(false)
+    expect(vm.isFocused).toEqual(true)
+  })
+
+  test('isFocused is false when element isnt focused and is active', () => {
+    const vm = ctorInput()
+    const event = { target: vm.formEl }
+    vm.isActive = true
+    vm.updateIsFocused(event)
+
+    expect(vm.isFocused).toEqual(false)
+  })
+
+  test('isFocused is false when element isnt focused and isnt active', () => {
+    const vm = ctorInput()
+    const event = { target: vm.formEl }
+    vm.updateIsFocused(event)
+
+    expect(vm.isFocused).toEqual(false)
   })
 })

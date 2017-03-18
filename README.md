@@ -143,6 +143,29 @@ to meet your design requirements:
 }
 ```
 
+Set `:on` prop if you need additional condition for label activation:
+
+```vue
+<template>
+  <float-label :on="isActive">
+    <input type="text" placeholder="Inactive">
+  </float-label>
+</template>
+
+<script>
+export default {
+  computed: {
+    isActive () {
+      return false
+    }
+  },
+  components: {
+    FloatLabel
+  }
+}
+</script>
+```
+
 ## Development
 
 1. Clone the repository:

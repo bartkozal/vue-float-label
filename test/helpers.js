@@ -1,9 +1,10 @@
 import Vue from 'vue'
 import FloatLabel from 'components/FloatLabel'
 
-export const ctorInput = () => {
+export const ctorInput = (propsData={}) => {
   return new Vue({
     components: { FloatLabel },
+    propsData,
     render: h => {
       return h('float-label', [
         h('input', {

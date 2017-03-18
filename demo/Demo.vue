@@ -13,6 +13,10 @@
         <input type="password" placeholder="Password">
       </float-label>
 
+      <float-label :on="isActive">
+        <input type="text" placeholder="Inactive">
+      </float-label>
+
       <float-label>
         <textarea placeholder="Comment"></textarea>
       </float-label>
@@ -35,6 +39,17 @@
     </div>
   </div>
 </template>
+
+<script>
+export default {
+  name: 'demo',
+  computed: {
+    isActive () {
+      return false
+    }
+  }
+}
+</script>
 
 <style>
 .container {
