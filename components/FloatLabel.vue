@@ -66,12 +66,14 @@ export default {
   color: #aaa;
   text-overflow: ellipsis;
   white-space: nowrap;
+  pointer-events: none;
   opacity: 0;
   transition: all 0.2s ease-out;
 }
 
 .vfl-label-on-input {
   top: -1.3em;
+  pointer-events: all;
   opacity: 1;
 }
 
