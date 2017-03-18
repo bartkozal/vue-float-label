@@ -1,6 +1,6 @@
 <template>
   <div class="vfl-has-label">
-    <div class="vfl-label" :class="classObject" :style="{ width }" @click="focusInput">
+    <div class="vfl-label" :class="classObject" :style="{ width }" @click="focusFormEl">
       {{ label }}
     </div>
     <slot></slot>
@@ -12,26 +12,27 @@ export default {
   name: 'float-label',
   data () {
     return {
-      input: undefined,
+      formEl: undefined,
       hasValue: false,
-      isActive: false,
-      label: '',
-      width: 'auto'
+      isActive: false
     }
   },
   mounted () {
-    this.input = this.$el.querySelector('input, textarea, select')
-    this.width = `${this.input.clientWidth}px`
-    this.label = this.input.placeholder
-    if (!this.label) this.label = this.input.attributes['placeholder'].nodeValue
-    this.input.addEventListener('input', this.updateHasValue)
-    this.input.addEventListener('input', this.updateIsActive)
-    this.input.addEventListener('blur', this.updateIsActive)
-    this.input.addEventListener('focus', this.updateIsActive)
+    this.formEl = this.$el.querySelector('input, textarea, select')
+    this.formEl.addEventListener('input', this.updateHasValue)
+    this.formEl.addEventListener('input', this.updateIsActive)
+    this.formEl.addEventListener('blur', this.updateIsActive)
+    this.formEl.addEventListener('focus', this.updateIsActive)
+  },
+  beforyDestroy () {
+    this.formEl.removeEventListener('input', this.updateHasValue)
+    this.formEl.removeEventListener('input', this.updateIsActive)
+    this.formEl.removeEventListener('blur', this.updateIsActive)
+    this.formEl.removeEventListener('focus', this.updateIsActive)
   },
   methods: {
-    focusInput () {
-      this.input.focus()
+    focusFormEl () {
+      this.formEl.focus()
     },
     updateHasValue (e) {
       this.hasValue = e.target.value.length > 0
@@ -45,6 +46,23 @@ export default {
       return {
         'vfl-label-on-input': this.hasValue,
         'vfl-label-on-focus': this.isActive
+      }
+    },
+    formElType () {
+      return this.formEl ? this.formEl.tagName.toLowerCase() : ''
+    },
+    width () {
+      return this.formEl ? `${this.formEl.clientWidth}px` : 'auto'
+    },
+    label () {
+      switch (this.formElType) {
+        case 'input':
+        case 'textarea':
+          return this.formEl.placeholder
+        case 'select':
+          return this.formEl.querySelector('option[disabled][selected]').innerHTML
+        default:
+          return ''
       }
     }
   }
@@ -82,7 +100,8 @@ export default {
 }
 
 .vfl-has-label input:focus,
-.vfl-has-label textarea:focus {
+.vfl-has-label textarea:focus,
+.vfl-has-label select:focus {
   outline: 0;
 }
 </style>
