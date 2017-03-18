@@ -17,6 +17,16 @@
         <textarea placeholder="Comment"></textarea>
       </float-label>
 
+      <float-label>
+        <select>
+          <option disabled selected>Framework</option>
+          <option>Vue</option>
+          <option>React</option>
+          <option>Angular</option>
+          <option>Ember</option>
+        </select>
+      </float-label>
+
       <div class="example">
         <float-label>
           <input type="text" placeholder="Website">

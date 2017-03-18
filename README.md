@@ -88,7 +88,7 @@ Load script and stylesheet files from CDN:
 
 ## Usage
 
-Wrap text/email/password input or textarea with `<float-label>`:
+Wrap input, textarea or select with `<float-label>`:
 
 ```html
 <float-label>
@@ -96,7 +96,17 @@ Wrap text/email/password input or textarea with `<float-label>`:
 </float-label>
 
 <float-label>
-  <textarea placeholder="comment"></textarea>
+  <textarea placeholder="Comment"></textarea>
+</float-label>
+
+<float-label>
+  <select>
+    <option disabled selected>Framework</option>
+    <option>Vue</option>
+    <option>React</option>
+    <option>Angular</option>
+    <option>Ember</option>
+  </select>
 </float-label>
 ```
 
@@ -141,7 +151,13 @@ to meet your design requirements:
     $ git clone git@github.com:bkzl/vue-float-label.git
     ```
 
-2. Start development:
+2. Install dependencies:
+
+    ```sh
+    $ yarn install
+    ```
+
+3. Start development:
 
     ```sh
     $ npm start
