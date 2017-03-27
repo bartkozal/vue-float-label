@@ -13,7 +13,7 @@ export default {
   props: {
     on: {
       type: Boolean,
-      default: true
+      default: false
     }
   },
   data () {
@@ -50,7 +50,7 @@ export default {
   computed: {
     classObject () {
       return {
-        'vfl-label-on-input': this.on && this.isActive,
+        'vfl-label-on-input': this.on || this.isActive,
         'vfl-label-on-focus': this.isFocused
       }
     },
