@@ -99,7 +99,7 @@ Wrap input, textarea or select with `<float-label>`:
   <textarea placeholder="Comment"></textarea>
 </float-label>
 
-<float-label>
+<float-label :dispatch="false">
   <select>
     <option disabled selected>Framework</option>
     <option>Vue</option>
@@ -202,6 +202,32 @@ export default {
         { value: 'beta', text: 'Beta' },
         { value: 'stable', text: 'Stable' },
       ]
+    }
+  },
+  components: {
+    FloatLabel
+  }
+}
+</script>
+```
+
+Set `:dispatch` to `false` to disable triggering `input` event
+once the component is mounted:
+
+_By default it's set to true to activate label when form element has value._
+
+```vue
+<template>
+  <float-label :dispatch="false">
+    <input type="email" placeholder="Email" v-model="email">
+  </float-label>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      email: 'john@example.com'
     }
   },
   components: {

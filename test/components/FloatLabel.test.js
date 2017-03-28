@@ -25,11 +25,6 @@ describe('classObject', () => {
     expect(classObjectKeys).toContain('vfl-label-on-input')
     expect(classObjectKeys).toContain('vfl-label-on-focus')
   })
-
-  test('onInput to be false when on prop is false', () => {
-    const vm = ctorInput({ on: false })
-    expect(vm.classObject['vfl-label-on-input']).toBe(false)
-  })
 })
 
 test('focusFormEl', () => {
@@ -89,3 +84,6 @@ describe('updateIsFocused', () => {
 test(':label', () => {
   expect(ctorInput({ label: 'Foobar' }).floatLabel).toEqual('Foobar')
 })
+
+xtest(':on')
+xtest(':dispatch')

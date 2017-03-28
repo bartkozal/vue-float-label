@@ -6,7 +6,7 @@
       </float-label>
 
       <float-label>
-        <input type="email" placeholder="Email">
+        <input type="email" placeholder="Email" v-model="email">
       </float-label>
 
       <float-label label="Overridden label">
@@ -21,7 +21,7 @@
         <textarea placeholder="Comment"></textarea>
       </float-label>
 
-      <float-label>
+      <float-label :dispatch="false">
         <select>
           <option disabled selected>Framework</option>
           <option>Vue</option>
@@ -53,6 +53,7 @@ export default {
   name: 'demo',
   data () {
     return {
+      email: 'bkzl@me.com',
       version: 'beta',
       options: [
         { value: 'alpha', text: 'Alpha' },
@@ -87,10 +88,6 @@ select {
   font-size: 14px;
   padding: .4em;
   width: 100%;
-}
-
-.example {
-  margin-top: 2em;
 }
 
 .example .vfl-label {

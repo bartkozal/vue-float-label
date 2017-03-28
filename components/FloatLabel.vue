@@ -18,6 +18,10 @@ export default {
     label: {
       type: String,
       default: ''
+    },
+    dispatch: {
+      type: Boolean,
+      default: true
     }
   },
   data () {
@@ -33,6 +37,7 @@ export default {
     this.formEl.addEventListener('input', this.updateIsFocused)
     this.formEl.addEventListener('blur', this.updateIsFocused)
     this.formEl.addEventListener('focus', this.updateIsFocused)
+    this.dispatchInput()
   },
   beforeDestroy () {
     this.formEl.removeEventListener('input', this.updateIsActive)
@@ -41,6 +46,13 @@ export default {
     this.formEl.removeEventListener('focus', this.updateIsFocused)
   },
   methods: {
+    dispatchInput () {
+      if (this.dispatch) {
+        const event = document.createEvent('HTMLEvents')
+        event.initEvent('input', true, false)
+        this.formEl.dispatchEvent(event)
+      }
+    },
     focusFormEl () {
       this.formEl.focus()
     },
