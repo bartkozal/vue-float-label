@@ -9,7 +9,7 @@
         <input type="email" placeholder="Email">
       </float-label>
 
-      <float-label>
+      <float-label label="Overridden label">
         <input type="password" placeholder="Password">
       </float-label>
 
@@ -31,6 +31,14 @@
         </select>
       </float-label>
 
+      <float-label label="Version">
+        <select v-model="version">
+          <option v-for="option in options" :value="option.value">
+            {{ option.text }}
+          </option>
+        </select>
+      </float-label>
+
       <div class="example">
         <float-label>
           <input type="text" placeholder="Website">
@@ -43,6 +51,16 @@
 <script>
 export default {
   name: 'demo',
+  data () {
+    return {
+      version: 'beta',
+      options: [
+        { value: 'alpha', text: 'Alpha' },
+        { value: 'beta', text: 'Beta' },
+        { value: 'stable', text: 'Stable' },
+      ]
+    }
+  },
   computed: {
     isActive () {
       return false
@@ -62,7 +80,8 @@ body {
 }
 
 input,
-textarea {
+textarea,
+select {
   margin-bottom: 2em;
   line-height: 1.15;
   font-size: 14px;

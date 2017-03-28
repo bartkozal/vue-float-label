@@ -110,7 +110,11 @@ Wrap input, textarea or select with `<float-label>`:
 </float-label>
 ```
 
-### Customization
+See more examples at [Demo.vue](https://github.com/bkzl/vue-float-label/blob/master/demo/Demo.vue).
+
+## Customization
+
+### Design
 
 Style `.vfl-label`, `.vfl-label-on-input` and `.vfl-label-on-focus`
 to meet your design requirements:
@@ -143,7 +147,9 @@ to meet your design requirements:
 }
 ```
 
-Set `:on` prop if you need additional condition for label activation:
+### Props
+
+Set `:on` prop to add an additional condition for label activation:
 
 ```vue
 <template>
@@ -157,6 +163,45 @@ export default {
   computed: {
     isActive () {
       return false
+    }
+  },
+  components: {
+    FloatLabel
+  }
+}
+</script>
+```
+
+Set `:label` prop to override `placeholder` attribute for input/textarea or
+`option[disabled][selected]` for select:
+
+```html
+<float-label label="Last name">
+  <input type="text" placeholder="Surname">
+</float-label>
+```
+
+```vue
+<template>
+  <float-label label="Version">
+    <select v-model="version">
+      <option v-for="option in options" :value="option.value">
+        {{ option.text }}
+      </option>
+    </select>
+  </float-label>
+</template>
+
+<script>
+export default {
+  data () {
+    return {
+      version: 'beta',
+      options: [
+        { value: 'alpha', text: 'Alpha' },
+        { value: 'beta', text: 'Beta' },
+        { value: 'stable', text: 'Stable' },
+      ]
     }
   },
   components: {
@@ -183,7 +228,7 @@ export default {
 3. Start development:
 
     ```sh
-    $ npm start
+    $ yarn start
     ```
 
 * * *

@@ -1,12 +1,13 @@
 import Vue from 'vue'
 import FloatLabel from 'components/FloatLabel'
 
-export const ctorInput = (propsData={}) => {
+export const ctorInput = (props={}) => {
   return new Vue({
     components: { FloatLabel },
-    propsData,
     render: h => {
-      return h('float-label', [
+      return h('float-label', {
+        props
+      }, [
         h('input', {
           attrs: {
             type: 'text',

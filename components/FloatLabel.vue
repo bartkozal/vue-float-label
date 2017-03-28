@@ -1,7 +1,7 @@
 <template>
   <div class="vfl-has-label">
     <div class="vfl-label" :class="classObject" :style="{ width }" @click="focusFormEl">
-      {{ label }}
+      {{ floatLabel }}
     </div>
     <slot></slot>
   </div>
@@ -14,6 +14,10 @@ export default {
     on: {
       type: Boolean,
       default: true
+    },
+    label: {
+      type: String,
+      default: ''
     }
   },
   data () {
@@ -60,7 +64,9 @@ export default {
     width () {
       return this.formEl ? `${this.formEl.clientWidth}px` : 'auto'
     },
-    label () {
+    floatLabel () {
+      if (this.label) return this.label
+
       switch (this.formElType) {
         case 'input':
         case 'textarea':
