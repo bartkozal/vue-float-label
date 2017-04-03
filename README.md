@@ -64,26 +64,18 @@ export default {
 
 ### CDN
 
-Load script and stylesheet files from CDN:
+Load the script file from CDN:
 
 ```html
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <link rel="stylesheet" href="//rawgit.com/bkzl/vue-float-label/v1.3.0/dist/vue-float-label.css">
-</head>
-<body>
-  <div id="root"></div>
-  <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.min.js"></script>
-  <script src="//rawgit.com/bkzl/vue-float-label/v1.3.0/dist/vue-float-label.js"></script>
-  <script>
-    new Vue({
-      el: '#root',
-      template: '<float-label>...</float-label>'
-    })
-  </script>
-</body>
-</html>
+<div id="root"></div>
+<script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.min.js"></script>
+<script src="//rawgit.com/bkzl/vue-float-label/v1.3.0/dist/vue-float-label.js"></script>
+<script>
+  new Vue({
+    el: '#root',
+    template: '<float-label>...</float-label>'
+  })
+</script>
 ```
 
 ## Usage
