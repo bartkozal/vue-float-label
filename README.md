@@ -69,7 +69,7 @@ Load the script file from CDN:
 ```html
 <div id="root"></div>
 <script src="//cdnjs.cloudflare.com/ajax/libs/vue/2.2.1/vue.min.js"></script>
-<script src="//rawgit.com/bkzl/vue-float-label/v1.3.1/dist/vue-float-label.js"></script>
+<script src="//unpkg.com/vue-float-label"></script>
 <script>
   new Vue({
     el: '#root',
