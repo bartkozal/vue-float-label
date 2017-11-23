@@ -1,8 +1,8 @@
 <template>
   <div class="vfl-has-label">
-    <div class="vfl-label" :class="classObject" :style="{ width }" @click="focusFormEl">
+    <label class="vfl-label" :class="classObject" :style="{ width }" :for="inputId">
       {{ floatLabel }}
-    </div>
+    </label>
     <slot></slot>
   </div>
 </template>
@@ -22,11 +22,16 @@ export default {
     dispatch: {
       type: Boolean,
       default: true
+    },
+    for: {
+      type: String,
+      default: null
     }
   },
   data () {
     return {
       formEl: undefined,
+      labelEl: undefined,
       isActive: false,
       isFocused: false
     }
@@ -37,6 +42,12 @@ export default {
     this.formEl.addEventListener('input', this.updateIsFocused)
     this.formEl.addEventListener('blur', this.updateIsFocused)
     this.formEl.addEventListener('focus', this.updateIsFocused)
+
+    if (!this.for) {
+      this.labelEl = this.$el.querySelector('label')
+      this.labelEl.addEventListener('click', this.focusFormEl)
+    }
+
     this.dispatchInput()
   },
   beforeDestroy () {
@@ -64,6 +75,9 @@ export default {
     }
   },
   computed: {
+    inputId () {
+      return this.for
+    },
     classObject () {
       return {
         'vfl-label-on-input': this.on && this.isActive,
