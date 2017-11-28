@@ -112,8 +112,8 @@ export default {
 .vfl-label {
   position: absolute;
   top: 0;
-  left: 0.1em;
   right: 0;
+  left: 0.1em;
   overflow: hidden;
   font-family: sans-serif;
   font-size: 0.8em;
