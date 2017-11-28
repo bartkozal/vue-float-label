@@ -1,6 +1,6 @@
 <template>
   <div class="vfl-has-label">
-    <label class="vfl-label" :class="classObject" :style="{ width }" :for="inputId">
+    <label class="vfl-label" :class="classObject" :for="inputId">
       {{ floatLabel }}
     </label>
     <slot></slot>
@@ -87,9 +87,6 @@ export default {
     formElType () {
       return this.formEl ? this.formEl.tagName.toLowerCase() : ''
     },
-    width () {
-      return this.formEl ? `${this.formEl.clientWidth}px` : 'auto'
-    },
     floatLabel () {
       if (this.label) return this.label
 
@@ -116,6 +113,7 @@ export default {
   position: absolute;
   top: 0;
   left: 0.1em;
+  right: 0;
   overflow: hidden;
   font-family: sans-serif;
   font-size: 0.8em;
