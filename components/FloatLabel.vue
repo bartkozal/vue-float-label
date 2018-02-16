@@ -15,6 +15,10 @@ export default {
       type: Boolean,
       default: true
     },
+    always: {
+      type: Boolean,
+      default: false
+    },
     label: {
       type: String,
       default: ''
@@ -80,7 +84,7 @@ export default {
     },
     classObject () {
       return {
-        'vfl-label-on-input': this.on && this.isActive,
+        'vfl-label-on-input': this.on && (this.isActive || this.always),
         'vfl-label-on-focus': this.isFocused
       }
     },
