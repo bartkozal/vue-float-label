@@ -85,5 +85,9 @@ test(':label', () => {
   expect(ctorInput({ label: 'Foobar' }).floatLabel).toEqual('Foobar')
 })
 
+test(':fixed', () => {
+  expect(ctorInput({ fixed: true }).classObject).toMatchObject({ 'vfl-label-on-input': true })
+})
+
 xtest(':on')
 xtest(':dispatch')

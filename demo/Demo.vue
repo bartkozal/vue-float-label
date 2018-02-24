@@ -39,6 +39,10 @@
         </select>
       </float-label>
 
+      <float-label fixed>
+        <input type="text" placeholder="Fixed">
+      </float-label>
+
       <div class="example">
         <float-label>
           <input type="text" placeholder="Website">

@@ -203,6 +203,16 @@ export default {
 </script>
 ```
 
+Set `:fixed` to `true` to make label permanently active:
+
+```vue
+<template>
+  <float-label fixed>
+    <input type="text" placeholder="Fixed">
+  </float-label>
+</template>
+```
+
 Set `:dispatch` to `false` to disable triggering `input` event
 once the component is mounted:
 
