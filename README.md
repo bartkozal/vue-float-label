@@ -1,6 +1,4 @@
-# vue-float-label
-
-[![Build Status](https://travis-ci.org/bkzl/vue-float-label.svg?branch=master)](https://travis-ci.org/bkzl/vue-float-label)
+# vue-float-label [![Build Status](https://semaphoreci.com/api/v1/bkzl/vue-float-label/branches/master/shields_badge.svg)](https://semaphoreci.com/bkzl/vue-float-label)
 
 Float label pattern for Vue.js. Cross-browser compatible and easy to customize
 with CSS.
@@ -32,10 +30,10 @@ $ npm install --save vue-float-label
 Load the plugin by calling `Vue.use()`:
 
 ```js
-import Vue from 'vue'
-import VueFloatLabel from 'vue-float-label'
+import Vue from "vue";
+import VueFloatLabel from "vue-float-label";
 
-Vue.use(VueFloatLabel)
+Vue.use(VueFloatLabel);
 ```
 
 Now you have access in your templates to the `<float-label>` component.
@@ -52,13 +50,13 @@ You may prefer to explicitly import the plugin and use it inside your components
 </template>
 
 <script>
-import FloatLabel from 'vue-float-label/components/FloatLabel'
+import FloatLabel from "vue-float-label/components/FloatLabel";
 
 export default {
   components: {
     FloatLabel
   }
-}
+};
 </script>
 ```
 
@@ -134,7 +132,7 @@ to meet your design requirements:
   transition: border 0.2s;
 }
 
-.vfl-label-on-focus + input  {
+.vfl-label-on-focus + input {
   border-bottom: 2px solid #ff851b;
 }
 ```
@@ -153,14 +151,14 @@ Set `:on` prop to add an additional condition for label activation:
 <script>
 export default {
   computed: {
-    isActive () {
-      return false
+    isActive() {
+      return false;
     }
   },
   components: {
     FloatLabel
   }
-}
+};
 </script>
 ```
 
@@ -186,20 +184,20 @@ Set `:label` prop to override `placeholder` attribute for input/textarea or
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      version: 'beta',
+      version: "beta",
       options: [
-        { value: 'alpha', text: 'Alpha' },
-        { value: 'beta', text: 'Beta' },
-        { value: 'stable', text: 'Stable' },
+        { value: "alpha", text: "Alpha" },
+        { value: "beta", text: "Beta" },
+        { value: "stable", text: "Stable" }
       ]
-    }
+    };
   },
   components: {
     FloatLabel
   }
-}
+};
 </script>
 ```
 
@@ -227,39 +225,39 @@ _By default it's set to true to activate label when form element has value._
 
 <script>
 export default {
-  data () {
+  data() {
     return {
-      email: 'john@example.com'
-    }
+      email: "john@example.com"
+    };
   },
   components: {
     FloatLabel
   }
-}
+};
 </script>
 ```
 
 ## Development
 
-1. Clone the repository:
+1.  Clone the repository:
 
     ```sh
     $ git clone git@github.com:bkzl/vue-float-label.git
     ```
 
-2. Install dependencies:
+2.  Install dependencies:
 
     ```sh
     $ yarn install
     ```
 
-3. Start development:
+3.  Start development:
 
     ```sh
     $ yarn start
     ```
 
-* * *
+---
 
 Code is open sourced [on GitHub](https://github.com/bkzl/vue-float-label). Up to date changelog is available under [the releases section](https://github.com/bkzl/vue-float-label/releases).
 
