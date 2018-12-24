@@ -1,4 +1,4 @@
-# vue-float-label [![Build Status](https://semaphoreci.com/api/v1/bkzl/vue-float-label/branches/master/shields_badge.svg)](https://semaphoreci.com/bkzl/vue-float-label)
+# vue-float-label
 
 Float label pattern for Vue.js. Cross-browser compatible and easy to customize
 with CSS.
@@ -260,5 +260,3 @@ export default {
 ---
 
 Code is open sourced [on GitHub](https://github.com/bkzl/vue-float-label). Up to date changelog is available under [the releases section](https://github.com/bkzl/vue-float-label/releases).
-
-I appreciate any comments, feedback, and information about potential issues. Have you experienced a bug or noticed a mistake in documentation? Please [add a new issue](https://github.com/bkzl/vue-float-label/issues). Thanks!
